@@ -1,0 +1,73 @@
+basePath: /
+definitions:
+  main.KeyValue:
+    properties:
+      value:
+        type: string
+    type: object
+host: localhost:9090
+info:
+  contact: {}
+  description: Atakan Şengöz - Yemeksepeti Api Swagger
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Yemeksepeti Golang
+  version: "1.0"
+paths:
+  /flush:
+    get:
+      consumes:
+      - '*/*'
+      description: gets all data from JSON
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: success
+          schema:
+            type: string
+      summary: gets all data
+      tags:
+      - methods
+  /get:
+    get:
+      consumes:
+      - '*/*'
+      description: gets the value from key
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: success
+          schema:
+            type: string
+      summary: gets the value from key
+      tags:
+      - methods
+  /post:
+    post:
+      consumes:
+      - application/json
+      description: set the value into key
+      parameters:
+      - description: value
+        in: body
+        name: value
+        required: true
+        schema:
+          $ref: '#/definitions/main.KeyValue'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: success
+          schema:
+            type: string
+      summary: set the value into key
+      tags:
+      - methods
+schemes:
+- http
+swagger: "2.0"
